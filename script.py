@@ -17,7 +17,22 @@ CMD_ID = {'0x01': "Route request",
           '0x0a': "Network Update",
           '0x0b': "End Device Timeout Request",
           '0x0c': "End Device Timeout Response",
-          '0x0d': "Link Power Delta",}
+          '0x0d': "Link Power Delta",
+          # quick fix, pyshark 0.4 uses 1-byte ids
+          #            pyshark 0.6 uses 4-byte
+          '0x00000001': "Route request",
+          '0x00000002': "Route reply",
+          '0x00000003': "Network Status",
+          '0x00000004': "Leave",
+          '0x00000005': "Route Record",
+          '0x00000006': "Rejoin request",
+          '0x00000007': "Rejoin response",
+          '0x00000008': "Link Status",
+          '0x00000009': "Network Report",
+          '0x0000000a': "Network Update",
+          '0x0000000b': "End Device Timeout Request",
+          '0x0000000c': "End Device Timeout Response",
+          '0x0000000d': "Link Power Delta",}
 
 DEVICE_ADDR = {
     '0x037f': "temp1",
@@ -30,6 +45,18 @@ DEVICE_ADDR = {
     '0x0000': "hub",
     '0xffff': "wpanBdcst",
     '0xfffc': "zbeeBdcst",
+    # quick fix, pyshark 0.4 uses 2-bytes to represent 2-byte addresses
+    #            pyshark 0.6 uses 4-bytes to represent 2-byte addresses...
+    '0x0000037f': "temp1",
+    '0x000021ff': "contact2",
+    '0x00005fa9': "plug1",
+    '0x00007e3f': "contact1",
+    '0x00008396': "temp2",
+    '0x0000c287': "plug2",
+    '0x0000db4b': "water",
+    '0x00000000': "hub",
+    '0x0000ffff': "wpanBdcst",
+    '0x0000fffc': "zbeeBdcst",
 }
 
 DEBUG = False
